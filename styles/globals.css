@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .flex {}
+
+  .flex-row {}
+
+  /* ... */
+}
+
+:root {
+  --input-border: #e1dede;
+  --input-focus-h: 245;
+  --input-focus-s: 100%;
+  --input-focus-l: 42%;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+/* .container {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.col-1 {
+  flex-basis: 8.333%;
+}
+
+.col-2 {
+  flex-basis: 16.666%;
+}
+
+.col-3 {
+  flex-basis: 25%;
+}
+
+.col-4 {
+  flex-basis: 33.333%;
+}
+
+.col-5 {
+  flex-basis: 41.666%;
+}
+
+.col-6 {
+  flex-basis: 50%;
+} */
+
+/* and so on up to 12... */
