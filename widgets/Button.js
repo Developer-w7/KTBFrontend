@@ -39,10 +39,10 @@ transition: all 0.15s;
         }
 `
 
-const Button = (props) => (
+const CustomButton = (props) => (
     <>
-        <ButtonWrap onClick={props.onClick} width={props.width} value={props.title?props.title:"submit"} type={props.type?props.type:"submit"}/>
+        <ButtonWrap  onClick={props.onClick} width={props.width} value={props.title?props.title:"submit"} type={props.type?props.type:"submit"}/>
     </>
 );
 
-export default Button;
+export default CustomButton;
