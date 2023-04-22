@@ -10,6 +10,7 @@ import variables from '../../styles/variables.module.scss'
 import TextInput from '../../widgets/TextInput'
 import Spacer from '../../widgets/Spacer'
 import Button from '../../widgets/Button'
+import axios from 'axios'
 
 
 interface User {
@@ -38,10 +39,39 @@ const Register: NextPage = () => {
 
     const textInput = useRef<HTMLInputElement>(null);
 
-    const register = () => {
-        textInput?.current?.focus();
-        console.log('haii')
-    }
+    const [User_Name, setName] = useState("");
+    const [User_Email, setEmail] = useState("");
+    const [User_Password, setPassword] = useState("");
+    const [User_Rep_Password, setRepPassword] = useState("");
+
+    const handleChange = (e) =>{
+        if(e.target.name === "User_Name")
+         setName(e.target.value);
+         else if(e.target.name === "User_Email")
+         setEmail(e.target.value);
+         else if(e.target.name === "User_Password")
+         setPassword(e.target.value);
+         else if(e.target.name === "User_Rep_Password")
+         setRepPassword(e.target.value);
+        }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if(User_Password !== User_Rep_Password){
+          console.error("Password Mismatch Error")
+        }
+        if(User_Password === "" || User_Rep_Password === ""){
+            console.error("Password Empty Error")
+        }
+        let data={user_name:User_Name,email:User_Email,password:User_Password}
+        let url ='http://localhost:5001/insert';
+                  axios.post(url,data).then((res)=>{
+                  console.log(res)
+                  }).catch((e)=>{console.log(e)})
+
+                  console.log(e)
+                  }
 
 
     return (
@@ -64,24 +94,31 @@ const Register: NextPage = () => {
                     />
                 </div>
                 <div className="basis-1/2 p-20 bg-zinc-100">
-                    <CenterWrapper height={"60%"} background="#fff" borderRadius={"10px"}>
+                    <CenterWrapper height={"auto"} background="#fff" borderRadius={"10px"}>
                         <Spacer height={'20px'} />
                         <h2 className='text-center text-sm md:text-2xl lg:text-3xl '>Sign Up</h2>
                         <Spacer height={'20px'} />
-
-                        <TextInput width='80%' placeholder='Name' />
+                        <form onSubmit={(e)=>{handleSubmit(e)}} style={{width:'100%'}}> 
+                        <CenterWrapper height={"100%"} background="#fff" borderRadius={"10px"}>
+                       
+                      
+                        <TextInput name="User_Name" value={User_Name} onChange={(v)=>handleChange(v)} width={'80%'} height={'50px'} placeholder='Name' />
+                        
                         <Spacer height={'10px'} />
-                        <TextInput width={'80%'} ref={textInput} placeholder='Email' />
+                        <TextInput name="User_Email" value={User_Email} onChange={(v)=>handleChange(v)} width={'80%'} height={'50px'} placeholder='Email' />
+                        
                         <Spacer height={'10px'} />
 
-                        <TextInput width={'80%'} placeholder='Password' />
+                        <TextInput name="User_Password" type="password" value={User_Password} onChange={(v)=>handleChange(v)} width={'80%'} height={'50px'} placeholder='Password' />
                         <Spacer height={'10px'} />
 
-                        <TextInput width={'80%'} placeholder='Repeat Password' />
+                        <TextInput name="User_Rep_Password" type="password" value={User_Rep_Password} onChange={(v)=>handleChange(v)} width={'80%'} height={'50px'} placeholder='Repeat Password' />
 
                         <Spacer height={'20px'} />
-                        <Button width={'80%'} title="Register" onClick={() => { register() }} />
+                        <Button type="submit" width={'80%'} title="Register" />
                         <Spacer height={'20px'} />
+                        </CenterWrapper>
+                        </form>
                     </CenterWrapper>
                     {/* <button className="outline outline-offset-2 outline-blue-500">Button A</button> */}
                 </div>

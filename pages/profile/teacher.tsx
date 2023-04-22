@@ -8,12 +8,12 @@ import { width } from '@mui/system';
 // import variables from '../../styles/variables.module.scss'
 import TextInput from '../../widgets/TextInput'
 import Spacer from '../../widgets/Spacer'
-import Button from '../../widgets/Button'
+import CustomButton from '../../widgets/Button'
 import { FaFacebookSquare, FaLinkedin, FaInstagramSquare, FaTwitterSquare } from 'react-icons/fa';
 
 // import Box from '@mui/material/Box';
 // import Drawer from '@mui/material/Drawer';
-// import Button from '@mui/material/Button';
+import Button from '@mui/material/Button';
 // import List from '@mui/material/List';
 // import Divider from '@mui/material/Divider';
 // import ListItem from '@mui/material/ListItem';
@@ -84,7 +84,7 @@ const RoundImageWrapper = styled.div(
 )
 
 
-// const TomatoButton = styled(Button)`
+// const TomatoButton = styled(CustomButton)`
 //   background: tomato;
 // `
 
@@ -164,7 +164,7 @@ const Teacher: NextPage = () => {
                                 <FaTwitterSquare style={{ fontSize: 30 }} />
                             </div>
 
-                            <Button onClick={() => { }} type='button' width={'80%'} title='Book Slot'>{'right'}</Button>
+                            <CustomButton onClick={() => { }} type='button' width={'80%'} title='Book Slot'>{'right'}</CustomButton>
                         </div>
                     </div>
                 </CoverWrapper>

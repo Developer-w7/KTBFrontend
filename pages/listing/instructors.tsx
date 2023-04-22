@@ -6,17 +6,18 @@ import Image from 'next/image'
 import styles from '../../styles/Home.module.css'
 import styled from 'styled-components'
 
-import Button from '../../widgets/Button'
+import CustomButton from '../../widgets/Button'
 
 
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-// import Button from '@mui/material/Button';
+import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+import Link from 'next/link';
 // import InboxIcon from '@mui/icons-material/MoveToInbox';
 // import MailIcon from '@mui/icons-material/Mail';
 
@@ -61,18 +62,18 @@ const Profilecard = styled.div(
 `
 )
 
-// const TomatoButton = styled(Button)`
+// const TomatoButton = styled(CustomButton)`
 //   background: tomato;
 // `
 
 
 
-const Listing: NextPage = ({ data }) => {
+const Instructors: NextPage = ({ data }) => {
     const [state, setState] = React.useState({
         top: false,
         left: false,
         bottom: false,
-        right: false,
+        right: false, 
     });
     const toggleDrawer = (anchor, open) => (event) => {
         console.log('ok')
@@ -124,6 +125,7 @@ const Listing: NextPage = ({ data }) => {
 
 
             <div className="container min-h-screen mx-auto">
+            <Button> <Link href="/home">Home</Link></Button>
                 <h2 className='text-3xl text-center py-8'>Find Course</h2>
                 {/* <CenterWrapper height={"100%"} background="#fff" borderRadius={"10px"}> */}
                 <div className="grid grid-cols-4 gap-4 hover:grid-cols-4">
@@ -154,14 +156,14 @@ const Listing: NextPage = ({ data }) => {
                                 <p>Programmer</p>
                                 <p>5 Years</p>
 
-                                <Button onClick={
+                                <CustomButton onClick={
                                     toggleDrawer('right', true)
 
 
-                                } type='button' width={'80%'} title={'Book Now'}>{'right'}</Button>
+                                } type='button' width={'80%'} title={'Book Now'}>{'right'}</CustomButton>
 
 
-                                {/* <Button width={'60%'} title="Book Slots" type='button' /> */}
+                                {/* <CustomButton width={'60%'} title="Book Slots" type='button' /> */}
                             </CenterWrapper>
 
                         </CardWrapper>
@@ -211,6 +213,8 @@ const Listing: NextPage = ({ data }) => {
                     </span>
                 </a>
             </footer>
+           {console.log(process.env.NEXT_PUBLIC_DEV_ID)}
+           {console.log(process.env.NEXT_PUBLIC_PROD_ID)}
         </div>
     )
 }
@@ -218,9 +222,12 @@ const Listing: NextPage = ({ data }) => {
 
 
 export async function getStaticProps() {
-    const res = await fetch(`http://localhost:5000/users`)
+
+ 
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/instructors`)
     const data = await res.json()
-    console.log(data);
+    console.log(process.env.NEXT_PUBLIC_DEV_ID);
+    console.log(process.env.NEXT_PUBLIC_PROD_ID)
     if (!data) {
         return {
             notFound: true,
@@ -231,4 +238,4 @@ export async function getStaticProps() {
         props: { data }, // will be passed to the page component as props
     }
 }
-export default Listing;
+export default Instructors;

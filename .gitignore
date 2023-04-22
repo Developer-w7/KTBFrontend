@@ -36,3 +36,11 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 .next
+
+# Env Files
+.env.local
+.env.production
+.env
+
+/.DS_Store
+.DS_Store

@@ -4,7 +4,7 @@
 			"path": "."
 		},
 		{
-			"path": "../../../node/test001"
+			"path": "../KTBBackend"
 		}
 	],
 	"settings": {}
