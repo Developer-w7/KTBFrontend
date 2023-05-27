@@ -2,7 +2,7 @@
   "name": "serve-006",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3004",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -12,12 +12,15 @@
     "@emotion/react": "^11.7.1",
     "@emotion/server": "^11.4.0",
     "@emotion/styled": "^11.6.0",
+    "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.3.1",
+    "@reduxjs/toolkit": "^1.9.5",
     "axios": "^1.2.0",
     "next": "^12.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.3.1",
+    "react-redux": "^8.0.5",
     "react-toastify": "^9.1.1",
     "sass": "^1.47.0",
     "styled-components": "^5.3.3"

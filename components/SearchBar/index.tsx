@@ -4,7 +4,8 @@ import * as React from 'react';
 // import CustomButton from '../../../widgets/Button';
 import styled from 'styled-components'
 import Debounce from '../../utils/Debounce';
-
+import SearchIcon from '@mui/icons-material/Search';
+import CloseIcon from '@mui/icons-material/Close';
 const SearchField = styled.input(
     ({ height, background, borderRadius, width }: AppProps) => `
     align-items: center;
@@ -41,21 +42,22 @@ const handleInput=(e:React.FormEvent<HTMLInputElement>)=>{
 }
 
 
-// Debounce(() => alert(text), 5000, text);
+
 
 
   return (
     <div style={{position:'relative', width:width}}>
-      {/* {console.log(count)}
-      <button onClick={() => setCount(c => c + 1)}>Increment</button> */}
+    
      <SearchField
       value={text}
       onChange={e => handleInput(e)}
       height={height}
       background={background}
       borderRadius={borderRadius}
-      />
-      <span onClick={()=>setText('')} style={{position:'absolute', right:10, top:'calc(100% - 35px)', color:'blue',cursor:'pointer'}}>x</span>  
+      />{text ?
+      <span onClick={()=>{setText(''); onChange('');}} style={{position:'absolute', right:10, top:'calc(100% - 40px)', color:'blue',cursor:'pointer'}}><CloseIcon fontSize="large"/></span>  :
+      <span onClick={()=>{setText(''); onChange('');}} style={{position:'absolute', right:10, top:'calc(100% - 40px)', color:'blue',cursor:'pointer'}}><SearchIcon fontSize="large"/></span>
+        }
     </div>
   )
 }

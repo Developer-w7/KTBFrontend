@@ -1,18 +1,41 @@
-// $columns: 12; // Number of columns in the grid system
+$columns: 12; // Number of columns in the grid system
 
-// .container {
-//     display: flex;
-//     flex-wrap: wrap;
-//     margin: 0 auto;
-//     max-width: 960px;
-// }
+.container-1 {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    // gap:4px;
+    // max-width: 960px;
+}
+$small: 550px;
+$medium: 768px;
+@for $width from 1 through $columns {
+    .col-#{$width} {
+        flex-basis: calc($width / $columns * 100%);
 
-// @for $width from 1 through $columns {
-//     .col-#{$width} {
-//         flex-basis: calc($width / $columns * 100%);
-//     }
-// }
+        // flex-basis:33%;
+        flex-grow:  calc($width / $columns * 100%);
+        flex-shrink: 1;
+  //some CSS
+  @media screen and (max-width: $small) {
+    //do Smth
+    flex-basis:100%;
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+  @media screen and (max-width: $medium) {
+    //do Smth
+    flex-basis:100%;
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
 
+    }
+}
+.col-6{
+    // flex-basis: 65%;
+    // flex-shrink: 1;
+}
 .roundImageWrapper {
     position: absolute;
     width: 84px;

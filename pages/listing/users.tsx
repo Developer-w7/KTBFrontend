@@ -177,7 +177,7 @@ const Users: NextPage = ({ data }) => {
                                         quality={100}
                                         width={80}
                                         height={80}
-                                    // placeholder="blur"
+                                    
                                     />
                                 </div>
                             </Profilecard>
@@ -220,14 +220,11 @@ const Users: NextPage = ({ data }) => {
 
                         </Box>
                     </Drawer>
-                    {/* <CardWrapper height="280px" background="#fff" borderRadius="5px">01</CardWrapper>
-                    <CardWrapper height="280px" background="#fff" borderRadius="5px">01</CardWrapper>
-                    <CardWrapper height="280px" background="#fff" borderRadius="5px">01</CardWrapper>
-                    <CardWrapper height="280px" background="#fff" borderRadius="5px">01</CardWrapper> */}
+       
 
 
                 </div>
-                {/* </CenterWrapper> */}
+               
 
             </div>
 
